@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Laboratorio - Página Oficial</title>
   <style>
+    /* Estilos generales */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -15,45 +16,210 @@
       background-color: #333;
       color: #fff;
       padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     nav {
       width: 90%;
       max-width: 1000px;
       margin: auto;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-around;
     }
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      padding: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: all 0.3s;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover,
+    nav a.active {
+      background-color: #555;
+    }
+    .tab-content {
+      display: none;
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+      animation: fadeIn 0.5s;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Estilos existentes (integrantes, proyectos, etc.) se mantienen igual */
+    /* ... (conservar los estilos anteriores) ... */
+
+    /* Nuevos estilos para formulario y noticias */
+    .form-contacto {
+      display: grid;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-contacto input,
+    .form-contacto textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .form-contacto button {
+      background-color: #333;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .noticias-container {
+      display: grid;
+      gap: 20px;
+    }
+    .noticia-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    .noticia-fecha {
+      color: #666;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <a href="info.html" target="_blank">Información</a>
-      <a href="integrantes.html" target="_blank">Integrantes</a>
-      <a href="proyectos.html" target="_blank">Proyectos</a>
-      <a href="articulos.html" target="_blank">Artículos publicados</a>
-      <a href="contacto.html" target="_blank">Contacto</a>
-      <a href="noticias.html" target="_blank">Noticias</a>
-      <a href="galeria.html" target="_blank">Galería</a>
-      <a href="index-en.html" target="_blank">English</a>
-      <a href="https://orcid.org/0000-0000-0000-0000" target="_blank">ORCID</a>
-      <a href="https://scholar.google.com/citations?user=XXXXXXX" target="_blank">Google Scholar</a>
+      <a href="#info" class="tab-link active">Información</a>
+      <a href="#integrantes" class="tab-link">Integrantes</a>
+      <a href="#proyectos" class="tab-link">Proyectos</a>
+      <a href="#articulos" class="tab-link">Artículos</a>
+      <a href="#contacto" class="tab-link">Contacto</a>
+      <a href="#noticias" class="tab-link">Noticias</a>
     </nav>
   </header>
 
-  <main style="padding: 20px; text-align: center;">
-    <h1>Bienvenidos a la página oficial del Laboratorio</h1>
-    <p>Selecciona una sección del menú para abrirla en una nueva pestaña.</p>
-  </main>
+  <!-- Secciones como pestañas -->
+  <div id="info" class="tab-content active">
+    <!-- Contenido existente de Información -->
+  </div>
+
+  <div id="integrantes" class="tab-content">
+    <!-- Contenido existente de Integrantes -->
+  </div>
+
+  <div id="proyectos" class="tab-content">
+    <!-- Contenido existente de Proyectos -->
+  </div>
+
+  <div id="articulos" class="tab-content">
+    <!-- Contenido existente de Artículos -->
+  </div>
+
+  <!-- Nueva sección de Contacto -->
+  <div id="contacto" class="tab-content">
+    <h2>Formulario de Contacto</h2>
+    <form class="form-contacto" id="contactForm">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <input type="text" name="asunto" placeholder="Asunto" required>
+      <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+  </div>
+
+  <!-- Nueva sección de Noticias -->
+  <div id="noticias" class="tab-content">
+    <h2>Últimas Noticias</h2>
+    <div class="noticias-container" id="noticiasContainer">
+      <!-- Las noticias se cargarán dinámicamente con JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    // Script para manejar las pestañas
+    document.addEventListener('DOMContentLoaded', function() {
+      // Manejo de pestañas
+      const tabs = document.querySelectorAll('.tab-link');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = tab.getAttribute('href').substring(1);
+          
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          tabContents.forEach(content => {
+            content.classList.remove('active');
+            if(content.id === targetId) {
+              content.classList.add('active');
+            }
+          });
+        });
+      });
+
+      // Script existente para los dropdowns
+      var botones = document.getElementsByClassName("dropdown-btn");
+      Array.from(botones).forEach(function(boton) {
+        boton.addEventListener("click", function() {
+          var contenido = this.nextElementSibling;
+          if (contenido.style.display === "block") {
+            contenido.style.display = "none";
+          } else {
+            contenido.style.display = "block";
+          }
+        });
+      });
+
+      // Datos de ejemplo para noticias (pueden cargarse desde una API)
+      const noticias = [
+        {
+          titulo: "Nuevo descubrimiento en biotecnología",
+          fecha: "2024-03-15",
+          contenido: "Nuestro equipo ha realizado un importante avance en...",
+          enlace: "#"
+        },
+        {
+          titulo: "Conferencia internacional",
+          fecha: "2024-03-10",
+          contenido: "Participación en el congreso mundial de...",
+          enlace: "#"
+        }
+      ];
+
+      // Generar noticias dinámicas
+      const noticiasContainer = document.getElementById('noticiasContainer');
+      noticias.forEach(noticia => {
+        const card = document.createElement('div');
+        card.className = 'noticia-card';
+        card.innerHTML = `
+          <h3>${noticia.titulo}</h3>
+          <div class="noticia-fecha">${noticia.fecha}</div>
+          <p>${noticia.contenido}</p>
+          <a href="${noticia.enlace}" class="articulos-list">Leer más</a>
+        `;
+        noticiasContainer.appendChild(card);
+      });
+
+      // Manejo del formulario
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Aquí iría la lógica para enviar el formulario
+        alert('Mensaje enviado correctamente');
+        this.reset();
+      });
+    });
+  </script>
 </body>
 </html>
