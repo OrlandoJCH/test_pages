@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Laboratorio - Página Oficial</title>
   <style>
-    /* Estilos generales */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -22,223 +21,39 @@
       max-width: 1000px;
       margin: auto;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-around;
     }
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-    }
-    section {
-      width: 90%;
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-    }
-    h2 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-    /* Estilos para la sección de Integrantes */
-    .integrantes-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: space-between;
-    }
-    .integrante {
-      flex: 1 1 calc(25% - 20px);
-      border: 1px solid #ccc;
       padding: 10px;
-      box-sizing: border-box;
-      text-align: center;
     }
-    .integrante img {
-      width: 100%;
-      height: auto;
-    }
-    .integrante h3 {
-      margin-top: 10px;
-      font-size: 1.1em;
-    }
-    .integrante p {
-      font-size: 0.9em;
-      margin: 10px 0;
-    }
-    /* Estilos para los menús desplegables de Proyectos */
-    .proyecto-dropdown {
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-    }
-    .dropdown-btn {
-      background-color: #f1f1f1;
-      border: none;
-      width: 100%;
-      padding: 10px;
-      text-align: left;
-      cursor: pointer;
-      font-size: 1em;
-      outline: none;
-    }
-    .dropdown-btn:hover {
-      background-color: #ddd;
-    }
-    .dropdown-content {
-      display: none;
-      padding: 10px;
-      background-color: #fafafa;
-      border-top: 1px solid #ccc;
-    }
-    /* Estilos para la lista de Artículos */
-    .articulos-list li {
-      margin: 5px 0;
-    }
-    .articulos-list a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-    .articulos-list a:hover {
+    nav a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <!-- Encabezado con navegación -->
   <header>
     <nav>
-      <a href="#info">Información</a>
-      <a href="#integrantes">Integrantes</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#articulos">Artículos publicados</a>
+      <a href="info.html" target="_blank">Información</a>
+      <a href="integrantes.html" target="_blank">Integrantes</a>
+      <a href="proyectos.html" target="_blank">Proyectos</a>
+      <a href="articulos.html" target="_blank">Artículos publicados</a>
+      <a href="contacto.html" target="_blank">Contacto</a>
+      <a href="noticias.html" target="_blank">Noticias</a>
+      <a href="galeria.html" target="_blank">Galería</a>
+      <a href="index-en.html" target="_blank">English</a>
+      <a href="https://orcid.org/0000-0000-0000-0000" target="_blank">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=XXXXXXX" target="_blank">Google Scholar</a>
     </nav>
   </header>
 
-  <!-- Sección Información -->
-  <section id="info">
-    <h2>Información del Laboratorio</h2>
-    <p>
-      Bienvenidos a la página del laboratorio. Aquí podrás encontrar información sobre nuestros objetivos, áreas de investigación y colaboraciones.
-      Nuestro equipo se dedica a [descripción breve del laboratorio].
-    </p>
-    <p>
-      Síguenos en <a href="https://www.facebook.com" target="_blank">Facebook</a> para conocer nuestras últimas publicaciones y actividades.
-    </p>
-  </section>
-
-  <!-- Sección Integrantes -->
-  <section id="integrantes">
-    <h2>Integrantes</h2>
-    <div class="integrantes-container">
-      <!-- Integrante 1 -->
-      <div class="integrante">
-        <img src="imagen1.jpg" alt="Foto de Integrante 1">
-        <h3>Integrante 1</h3>
-        <p>Descripción breve del Integrante 1. Área de experiencia, rol en el laboratorio y logros principales.</p>
-        <p>
-          <a href="https://www.researchgate.net" target="_blank">ResearchGate</a>
-          <!-- Puedes agregar más enlaces según convenga -->
-        </p>
-      </div>
-      <!-- Integrante 2 -->
-      <div class="integrante">
-        <img src="imagen2.jpg" alt="Foto de Integrante 2">
-        <h3>Integrante 2</h3>
-        <p>Descripción breve del Integrante 2. Área de especialización, colaboraciones e intereses de investigación.</p>
-        <p>
-          <a href="https://www.researchgate.net" target="_blank">ResearchGate</a>
-        </p>
-      </div>
-      <!-- Integrante 3 -->
-      <div class="integrante">
-        <img src="imagen3.jpg" alt="Foto de Integrante 3">
-        <h3>Integrante 3</h3>
-        <p>Descripción breve del Integrante 3. Experiencia, publicaciones y proyectos en curso.</p>
-        <p>
-          <a href="https://www.researchgate.net" target="_blank">ResearchGate</a>
-        </p>
-      </div>
-      <!-- Integrante 4 -->
-      <div class="integrante">
-        <img src="imagen4.jpg" alt="Foto de Integrante 4">
-        <h3>Integrante 4</h3>
-        <p>Descripción breve del Integrante 4. Investigador, docente y colaborador en diversas iniciativas.</p>
-        <p>
-          <a href="https://www.researchgate.net" target="_blank">ResearchGate</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección Proyectos -->
-  <section id="proyectos">
-    <h2>Proyectos Vigentes</h2>
-    <!-- Proyecto 1 -->
-    <div class="proyecto-dropdown">
-      <button class="dropdown-btn">Proyecto 1: Título del proyecto</button>
-      <div class="dropdown-content">
-        <p>Descripción detallada del Proyecto 1. Objetivos, metodología y estado actual.</p>
-      </div>
-    </div>
-    <!-- Proyecto 2 -->
-    <div class="proyecto-dropdown">
-      <button class="dropdown-btn">Proyecto 2: Título del proyecto</button>
-      <div class="dropdown-content">
-        <p>Descripción detallada del Proyecto 2. Enfoque, resultados preliminares y colaboradores.</p>
-      </div>
-    </div>
-    <!-- Proyecto 3 -->
-    <div class="proyecto-dropdown">
-      <button class="dropdown-btn">Proyecto 3: Título del proyecto</button>
-      <div class="dropdown-content">
-        <p>Descripción detallada del Proyecto 3. Líneas de investigación, financiamiento y avances recientes.</p>
-      </div>
-    </div>
-    <!-- Proyecto 4 -->
-    <div class="proyecto-dropdown">
-      <button class="dropdown-btn">Proyecto 4: Título del proyecto</button>
-      <div class="dropdown-content">
-        <p>Descripción detallada del Proyecto 4. Innovación, impacto social y colaboraciones internacionales.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección Artículos Publicados -->
-  <section id="articulos">
-    <h2>Artículos Publicados</h2>
-    <ul class="articulos-list">
-      <li>Artículo 1: Título del artículo. <a href="https://www.researchgate.net/profile/Orlando-J-Espinosa-Chavez?ev=hdr_xprf" target="_blank">Ver artículo</a></li>
-      <li>Artículo 2: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 3: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 4: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-      <li>Artículo 5: Título del artículo. <a href="#" target="_blank">Ver artículo</a></li>
-    </ul>
-  </section>
-
-  <!-- Script para el comportamiento de los menús desplegables -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var botones = document.getElementsByClassName("dropdown-btn");
-      Array.from(botones).forEach(function(boton) {
-        boton.addEventListener("click", function() {
-          var contenido = this.nextElementSibling;
-          if (contenido.style.display === "block") {
-            contenido.style.display = "none";
-          } else {
-            contenido.style.display = "block";
-          }
-        });
-      });
-    });
-  </script>
+  <main style="padding: 20px; text-align: center;">
+    <h1>Bienvenidos a la página oficial del Laboratorio</h1>
+    <p>Selecciona una sección del menú para abrirla en una nueva pestaña.</p>
+  </main>
 </body>
 </html>
