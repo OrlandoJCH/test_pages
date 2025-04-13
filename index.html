@@ -55,44 +55,68 @@
       to { opacity: 1; }
     }
 
-    /* Estilos existentes (integrantes, proyectos, etc.) se mantienen igual */
-    /* ... (conservar los estilos anteriores) ... */
-
-    /* Nuevos estilos para formulario y noticias */
-    .form-contacto {
-      display: grid;
-      gap: 15px;
-      max-width: 600px;
-      margin: 0 auto;
+    /* Estilos para la sección de Integrantes */
+    .integrantes-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
     }
-    .form-contacto input,
-    .form-contacto textarea {
+    .integrante {
+      flex: 1 1 calc(25% - 20px);
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .integrante img {
+      width: 100%;
+      height: auto;
+    }
+    .integrante h3 {
+      margin-top: 10px;
+      font-size: 1.1em;
+    }
+    .integrante p {
+      font-size: 0.9em;
+      margin: 10px 0;
+    }
+
+    /* Estilos para los menús desplegables de Proyectos */
+    .proyecto-dropdown {
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+    }
+    .dropdown-btn {
+      background-color: #f1f1f1;
+      border: none;
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .form-contacto button {
-      background-color: #333;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 4px;
+      text-align: left;
       cursor: pointer;
+      font-size: 1em;
+      outline: none;
     }
-    .noticias-container {
-      display: grid;
-      gap: 20px;
+    .dropdown-btn:hover {
+      background-color: #ddd;
     }
-    .noticia-card {
-      border: 1px solid #ddd;
-      padding: 15px;
-      border-radius: 8px;
-      background-color: #f9f9f9;
+    .dropdown-content {
+      display: none;
+      padding: 10px;
+      background-color: #fafafa;
+      border-top: 1px solid #ccc;
     }
-    .noticia-fecha {
-      color: #666;
-      font-size: 0.9em;
+
+    /* Estilos para la lista de Artículos */
+    .articulos-list li {
+      margin: 5px 0;
+    }
+    .articulos-list a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .articulos-list a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -103,50 +127,44 @@
       <a href="#integrantes" class="tab-link">Integrantes</a>
       <a href="#proyectos" class="tab-link">Proyectos</a>
       <a href="#articulos" class="tab-link">Artículos</a>
-      <a href="#contacto" class="tab-link">Contacto</a>
-      <a href="#noticias" class="tab-link">Noticias</a>
     </nav>
   </header>
 
-  <!-- Secciones como pestañas -->
+  <!-- Sección Información -->
   <div id="info" class="tab-content active">
-    <!-- Contenido existente de Información -->
+    <h2>Información del Laboratorio</h2>
+    <p>
+      Bienvenidos a la página del laboratorio. Aquí podrás encontrar información sobre nuestros objetivos, 
+      áreas de investigación y colaboraciones. Nuestro equipo se dedica a [descripción breve del laboratorio].
+    </p>
+    <p>
+      Síguenos en <a href="https://www.facebook.com" target="_blank">Facebook</a> para conocer nuestras últimas publicaciones y actividades.
+    </p>
   </div>
 
+  <!-- Sección Integrantes -->
   <div id="integrantes" class="tab-content">
-    <!-- Contenido existente de Integrantes -->
-  </div>
-
-  <div id="proyectos" class="tab-content">
-    <!-- Contenido existente de Proyectos -->
-  </div>
-
-  <div id="articulos" class="tab-content">
-    <!-- Contenido existente de Artículos -->
-  </div>
-
-  <!-- Nueva sección de Contacto -->
-  <div id="contacto" class="tab-content">
-    <h2>Formulario de Contacto</h2>
-    <form class="form-contacto" id="contactForm">
-      <input type="text" name="nombre" placeholder="Nombre completo" required>
-      <input type="email" name="email" placeholder="Correo electrónico" required>
-      <input type="text" name="asunto" placeholder="Asunto" required>
-      <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-      <button type="submit">Enviar Mensaje</button>
-    </form>
-  </div>
-
-  <!-- Nueva sección de Noticias -->
-  <div id="noticias" class="tab-content">
-    <h2>Últimas Noticias</h2>
-    <div class="noticias-container" id="noticiasContainer">
-      <!-- Las noticias se cargarán dinámicamente con JavaScript -->
+    <h2>Integrantes</h2>
+    <div class="integrantes-container">
+      <!-- Integrantes... (mantener el contenido original) -->
     </div>
   </div>
 
+  <!-- Sección Proyectos -->
+  <div id="proyectos" class="tab-content">
+    <h2>Proyectos Vigentes</h2>
+    <!-- Proyectos... (mantener el contenido original) -->
+  </div>
+
+  <!-- Sección Artículos Publicados -->
+  <div id="articulos" class="tab-content">
+    <h2>Artículos Publicados</h2>
+    <ul class="articulos-list">
+      <!-- Artículos... (mantener el contenido original) -->
+    </ul>
+  </div>
+
   <script>
-    // Script para manejar las pestañas
     document.addEventListener('DOMContentLoaded', function() {
       // Manejo de pestañas
       const tabs = document.querySelectorAll('.tab-link');
@@ -169,7 +187,7 @@
         });
       });
 
-      // Script existente para los dropdowns
+      // Script para los dropdowns de proyectos
       var botones = document.getElementsByClassName("dropdown-btn");
       Array.from(botones).forEach(function(boton) {
         boton.addEventListener("click", function() {
@@ -180,44 +198,6 @@
             contenido.style.display = "block";
           }
         });
-      });
-
-      // Datos de ejemplo para noticias (pueden cargarse desde una API)
-      const noticias = [
-        {
-          titulo: "Nuevo descubrimiento en biotecnología",
-          fecha: "2024-03-15",
-          contenido: "Nuestro equipo ha realizado un importante avance en...",
-          enlace: "#"
-        },
-        {
-          titulo: "Conferencia internacional",
-          fecha: "2024-03-10",
-          contenido: "Participación en el congreso mundial de...",
-          enlace: "#"
-        }
-      ];
-
-      // Generar noticias dinámicas
-      const noticiasContainer = document.getElementById('noticiasContainer');
-      noticias.forEach(noticia => {
-        const card = document.createElement('div');
-        card.className = 'noticia-card';
-        card.innerHTML = `
-          <h3>${noticia.titulo}</h3>
-          <div class="noticia-fecha">${noticia.fecha}</div>
-          <p>${noticia.contenido}</p>
-          <a href="${noticia.enlace}" class="articulos-list">Leer más</a>
-        `;
-        noticiasContainer.appendChild(card);
-      });
-
-      // Manejo del formulario
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Aquí iría la lógica para enviar el formulario
-        alert('Mensaje enviado correctamente');
-        this.reset();
       });
     });
   </script>
