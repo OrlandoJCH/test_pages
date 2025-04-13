@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laboratorio - Página Oficial</title>
+  <title>Laboratorio de Procesos Evolutivos y Diversidad de Aves Neotropicales</title>
   <style>
     /* Estilos generales */
     body {
@@ -55,7 +55,31 @@
       to { opacity: 1; }
     }
 
-    /* Estilos para la sección de Integrantes */
+    /* Estilos Información */
+    .logo-lab {
+      max-width: 200px;
+      margin: 20px auto;
+      display: block;
+    }
+    .facebook-link {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .facebook-link img {
+      width: 40px;
+      transition: transform 0.3s;
+    }
+    .facebook-link img:hover {
+      transform: scale(1.1);
+    }
+    .info-contacto {
+      background-color: #f5f5f5;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    /* Estilos Integrantes */
     .integrantes-container {
       display: flex;
       flex-wrap: wrap;
@@ -72,51 +96,81 @@
     .integrante img {
       width: 100%;
       height: auto;
+      max-height: 200px;
+      object-fit: cover;
     }
-    .integrante h3 {
+    .perfil-links {
       margin-top: 10px;
-      font-size: 1.1em;
     }
-    .integrante p {
+    .perfil-links a {
+      display: inline-block;
+      margin: 0 5px;
+      color: #007BFF;
+      text-decoration: none;
       font-size: 0.9em;
-      margin: 10px 0;
     }
 
-    /* Estilos para los menús desplegables de Proyectos */
+    /* Estilos Proyectos */
     .proyecto-dropdown {
       margin-bottom: 15px;
       border: 1px solid #ccc;
+      border-radius: 4px;
     }
     .dropdown-btn {
       background-color: #f1f1f1;
       border: none;
       width: 100%;
-      padding: 10px;
+      padding: 15px;
       text-align: left;
       cursor: pointer;
       font-size: 1em;
       outline: none;
+      transition: background-color 0.3s;
     }
     .dropdown-btn:hover {
       background-color: #ddd;
     }
     .dropdown-content {
       display: none;
-      padding: 10px;
+      padding: 15px;
       background-color: #fafafa;
-      border-top: 1px solid #ccc;
+    }
+    .proyecto-imagen {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px 0;
+      border-radius: 4px;
     }
 
-    /* Estilos para la lista de Artículos */
+    /* Estilos Artículos */
+    .articulos-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
     .articulos-list li {
-      margin: 5px 0;
+      margin: 15px 0;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-left: 4px solid #007BFF;
+      transition: all 0.3s ease;
+    }
+    .articulos-list li:hover {
+      background-color: #e9ecef;
+      transform: translateX(5px);
     }
     .articulos-list a {
-      color: #007BFF;
+      color: #28a745;
+      font-weight: bold;
       text-decoration: none;
+      margin-left: 10px;
     }
     .articulos-list a:hover {
       text-decoration: underline;
+    }
+    .articulos-list strong {
+      color: #333;
+      display: inline-block;
+      min-width: 60px;
     }
   </style>
 </head>
@@ -132,35 +186,135 @@
 
   <!-- Sección Información -->
   <div id="info" class="tab-content active">
-    <h2>Información del Laboratorio</h2>
-    <p>
-      Bienvenidos a la página del laboratorio. Aquí podrás encontrar información sobre nuestros objetivos, 
-      áreas de investigación y colaboraciones. Nuestro equipo se dedica a [descripción breve del laboratorio].
-    </p>
-    <p>
-      Síguenos en <a href="https://www.facebook.com" target="_blank">Facebook</a> para conocer nuestras últimas publicaciones y actividades.
-    </p>
+    <h1>Laboratorio de Procesos Evolutivos y Diversidad de Aves Neotropicales</h1>
+    <img src="logo-lab.png" alt="Logo del laboratorio" class="logo-lab">
+    
+    <p>La investigación en el laboratorio se centra en los procesos evolutivos que impulsan la biodiversidad aviar, la evolución de los patrones de distribución, la estructura filogenética de las comunidades aviares, la biogeografía y la sistemática, principalmente en los Neotrópicos.</p>
+
+    <div class="facebook-link">
+      <a href="https://www.facebook.com/EvoNeoBirds/" target="_blank">
+        <img src="facebook-icon.png" alt="Facebook del laboratorio">
+      </a>
+    </div>
+
+    <div class="info-contacto">
+      <h3>Información de contacto</h3>
+      <p>Dirección: [Dirección completa del laboratorio]</p>
+      <p>Teléfono: [+52 55 1234 5678]</p>
+    </div>
   </div>
 
   <!-- Sección Integrantes -->
   <div id="integrantes" class="tab-content">
     <h2>Integrantes</h2>
     <div class="integrantes-container">
-      <!-- Integrantes... (mantener el contenido original) -->
+      <div class="integrante">
+        <img src="integrante1.jpg" alt="Investigador Principal">
+        <h3>Dr. Juan Pérez</h3>
+        <p>Investigador principal especializado en biogeografía aviar con más de 15 años de experiencia en estudios neotropicales.</p>
+        <div class="perfil-links">
+          <a href="#" target="_blank">ResearchGate</a>
+          <a href="#" target="_blank">ORCID</a>
+          <a href="#" target="_blank">Google Scholar</a>
+        </div>
+      </div>
+
+      <div class="integrante">
+        <img src="integrante2.jpg" alt="Investigadora Postdoctoral">
+        <h3>Dra. María González</h3>
+        <p>Especialista en genética evolutiva de aves neotropicales con enfoque en filogeografía.</p>
+        <div class="perfil-links">
+          <a href="#" target="_blank">ResearchGate</a>
+          <a href="#" target="_blank">ORCID</a>
+          <a href="#" target="_blank">Google Scholar</a>
+        </div>
+      </div>
+
+      <div class="integrante">
+        <img src="integrante3.jpg" alt="Estudiante Doctorado">
+        <h3>Biol. Luis Martínez</h3>
+        <p>Estudiante de doctorado investigando patrones de diversidad en comunidades aviares.</p>
+        <div class="perfil-links">
+          <a href="#" target="_blank">ResearchGate</a>
+          <a href="#" target="_blank">ORCID</a>
+          <a href="#" target="_blank">Google Scholar</a>
+        </div>
+      </div>
+
+      <div class="integrante">
+        <img src="integrante4.jpg" alt="Técnico de Laboratorio">
+        <h3>Biol. Ana Sánchez</h3>
+        <p>Especialista en bioinformática y análisis de datos ecológicos.</p>
+        <div class="perfil-links">
+          <a href="#" target="_blank">ResearchGate</a>
+          <a href="#" target="_blank">ORCID</a>
+          <a href="#" target="_blank">Google Scholar</a>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Sección Proyectos -->
   <div id="proyectos" class="tab-content">
     <h2>Proyectos Vigentes</h2>
-    <!-- Proyectos... (mantener el contenido original) -->
+    
+    <div class="proyecto-dropdown">
+      <button class="dropdown-btn">Proyecto 1: Filogeografía de especies andinas</button>
+      <div class="dropdown-content">
+        <img src="proyecto1.jpg" alt="Proyecto 1" class="proyecto-imagen">
+        <p>Análisis de patrones de diversidad genética en aves de alta montaña...</p>
+      </div>
+    </div>
+
+    <div class="proyecto-dropdown">
+      <button class="dropdown-btn">Proyecto 2: Evolución de coloración en tangaras</button>
+      <div class="dropdown-content">
+        <img src="proyecto2.jpg" alt="Proyecto 2" class="proyecto-imagen">
+        <p>Estudio de la evolución del plumaje en Thraupidae neotropicales...</p>
+      </div>
+    </div>
+
+    <div class="proyecto-dropdown">
+      <button class="dropdown-btn">Proyecto 3: Biogeografía amazónica</button>
+      <div class="dropdown-content">
+        <img src="proyecto3.jpg" alt="Proyecto 3" class="proyecto-imagen">
+        <p>Reconstrucción de áreas ancestrales en aves de sotobosque...</p>
+      </div>
+    </div>
+
+    <div class="proyecto-dropdown">
+      <button class="dropdown-btn">Proyecto 4: Sistemática de colibríes</button>
+      <div class="dropdown-content">
+        <img src="proyecto4.jpg" alt="Proyecto 4" class="proyecto-imagen">
+        <p>Revisión taxonómica del género Amazilia utilizando datos genómicos...</p>
+      </div>
+    </div>
   </div>
 
-  <!-- Sección Artículos Publicados -->
+  <!-- Sección Artículos -->
   <div id="articulos" class="tab-content">
     <h2>Artículos Publicados</h2>
     <ul class="articulos-list">
-      <!-- Artículos... (mantener el contenido original) -->
+      <li>
+        <strong>2023:</strong> Filogenómica de aves neotropicales: nuevos enfoques metodológicos. 
+        <a href="#" target="_blank">Ver artículo</a>
+      </li>
+      <li>
+        <strong>2022:</strong> Patrones de diversidad en comunidades aviares de los Andes tropicales. 
+        <a href="#" target="_blank">Ver artículo</a>
+      </li>
+      <li>
+        <strong>2021:</strong> Evolución del canto en aves passeriformes: un análisis comparativo. 
+        <a href="#" target="_blank">Ver artículo</a>
+      </li>
+      <li>
+        <strong>2020:</strong> Biogeografía histórica de los colibríes amazónicos: el papel de los cambios paleoclimáticos. 
+        <a href="#" target="_blank">Ver artículo</a>
+      </li>
+      <li>
+        <strong>2019:</strong> Sistemática integrativa del género Tangara (Thraupidae): evidencias morfológicas y moleculares. 
+        <a href="#" target="_blank">Ver artículo</a>
+      </li>
     </ul>
   </div>
 
@@ -187,7 +341,7 @@
         });
       });
 
-      // Script para los dropdowns de proyectos
+      // Manejo de dropdowns de proyectos
       var botones = document.getElementsByClassName("dropdown-btn");
       Array.from(botones).forEach(function(boton) {
         boton.addEventListener("click", function() {
