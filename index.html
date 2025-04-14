@@ -549,7 +549,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Manejo de pestañas
+    // Tabs
     const tabs = document.querySelectorAll('.tab-link');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -568,7 +568,6 @@
           }
         });
 
-        // En móviles: cerrar menú tras hacer clic en un enlace
         const nav = document.getElementById("main-nav");
         if (window.innerWidth <= 768) {
           nav.classList.remove("open");
@@ -576,26 +575,29 @@
       });
     });
 
-    // Manejo de dropdowns de proyectos
-    var botones = document.getElementsByClassName("dropdown-btn");
+    // Dropdowns: cerrar otros al abrir uno nuevo
+    const botones = document.getElementsByClassName("dropdown-btn");
     Array.from(botones).forEach(function(boton) {
       boton.addEventListener("click", function() {
-        var contenido = this.nextElementSibling;
-        if (contenido.style.display === "block") {
-          contenido.style.display = "none";
-        } else {
-          contenido.style.display = "block";
-        }
+        const todos = document.getElementsByClassName("dropdown-content");
+        Array.from(todos).forEach((contenido) => {
+          if (contenido !== this.nextElementSibling) {
+            contenido.style.display = "none";
+          }
+        });
+        const contenidoActual = this.nextElementSibling;
+        contenidoActual.style.display = (contenidoActual.style.display === "block") ? "none" : "block";
       });
     });
 
-    // Manejo del menú móvil (hamburguesa)
+    // Menú hamburguesa
     const menuToggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("main-nav");
-
-    menuToggle.addEventListener("click", () => {
-      nav.classList.toggle("open");
-    });
+    if (menuToggle) {
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    }
   });
 </script>
 </body>
