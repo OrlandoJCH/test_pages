@@ -300,11 +300,47 @@
       display: inline-block;
       min-width: 60px;
     }
+/* Menú responsive para móviles */
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  nav a {
+    display: none;
+    width: 100%;
+    padding: 10px 15px;
+    border-top: 1px solid #444;
+    background-color: #333;
+  }
+
+  nav.open a {
+    display: block;
+  }
+}
   </style>
 </head>
 <body>
   <header>
-    <nav>
+    <nav id="main-nav">
+      <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
       <a href="#info" class="tab-link active">Información</a>
       <a href="#integrantes" class="tab-link">Integrantes</a>
       <a href="#proyectos" class="tab-link">Proyectos</a>
@@ -388,7 +424,7 @@
           
           <div class="bio">
             <p>Soy biólogo egresado de la FES Zaragoza y Maestro en Ciencias por la Facultad de Ciencias de la UNAM, donde actualmente curso el Doctorado en Ciencias Biológicas. Mis intereses se centran en la sistemática, filogeografía y ecología evolutiva.</p>
-            <p>Específicamente en comprender los procesos evolutivos que han dado forma a la diversidad de aves en México, tanto en regiones de tierras bajas como de montaña, esto mediante el uso de datos moleculares y modelado de nicho ecológico. Además, he realizado trabajo en campo en gran parte de México, me apasiona la fotografía y la divulgación científica.</p>
+            <p>Específicamente en comprender los procesos evolutivos que han dado forma a la diversidad de aves en México, tanto en regiones de tierras bajas como de montaña, esto mediante el uso de datos moleculares y modelado de nicho ecológico. Además, he realizado trabajo en campo en gran parte de México y me apasiona la fotografía y la divulgación científica.</p>
             <p>e-mail: orlando.espinosa@ciencias.unam.mx</p>
           </div>
           
@@ -511,42 +547,56 @@
     </ul>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Manejo de pestañas
-      const tabs = document.querySelectorAll('.tab-link');
-      const tabContents = document.querySelectorAll('.tab-content');
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Manejo de pestañas
+    const tabs = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-      tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-          e.preventDefault();
-          const targetId = tab.getAttribute('href').substring(1);
-          
-          tabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          
-          tabContents.forEach(content => {
-            content.classList.remove('active');
-            if(content.id === targetId) {
-              content.classList.add('active');
-            }
-          });
-        });
-      });
-
-      // Manejo de dropdowns de proyectos
-      var botones = document.getElementsByClassName("dropdown-btn");
-      Array.from(botones).forEach(function(boton) {
-        boton.addEventListener("click", function() {
-          var contenido = this.nextElementSibling;
-          if (contenido.style.display === "block") {
-            contenido.style.display = "none";
-          } else {
-            contenido.style.display = "block";
+    tabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = tab.getAttribute('href').substring(1);
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+          if(content.id === targetId) {
+            content.classList.add('active');
           }
         });
+
+        // En móviles: cerrar menú tras hacer clic en un enlace
+        const nav = document.getElementById("main-nav");
+        if (window.innerWidth <= 768) {
+          nav.classList.remove("open");
+        }
       });
     });
-  </script>
+
+    // Manejo de dropdowns de proyectos
+    var botones = document.getElementsByClassName("dropdown-btn");
+    Array.from(botones).forEach(function(boton) {
+      boton.addEventListener("click", function() {
+        var contenido = this.nextElementSibling;
+        if (contenido.style.display === "block") {
+          contenido.style.display = "none";
+        } else {
+          contenido.style.display = "block";
+        }
+      });
+    });
+
+    // Manejo del menú móvil (hamburguesa)
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("main-nav");
+
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+  });
+</script>
 </body>
 </html>
