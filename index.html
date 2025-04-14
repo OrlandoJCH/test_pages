@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Laboratorio de Procesos Evolutivos y Diversidad de Aves Neotropicales</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     /* Estilos generales */
     body {
@@ -56,21 +57,21 @@
     }
 
     /* Estilos Información */
+    .titulo-principal {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin: 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    width: 100%;
+    max-width: 800px;
+  }
     .logo-lab {
       max-width: 200px;
       margin: 20px auto;
       display: block;
-    }
-    .facebook-link {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .facebook-link img {
-      width: 40px;
-      transition: transform 0.3s;
-    }
-    .facebook-link img:hover {
-      transform: scale(1.1);
     }
     .info-contacto {
       background-color: #f5f5f5;
@@ -78,36 +79,162 @@
       margin-top: 20px;
       border-radius: 5px;
     }
+  .redes-sociales {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+  }
+
+  .red-social {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+  }
+
+  .red-social i {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .facebook { background-color: #3b5998; }
+  .instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+  .researchgate { background-color: #00CCBB; }
+
+  .red-social:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  @media (max-width: 768px) {
+    .redes-sociales {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .titulo-principal {
+      font-size: 1.8em;
+      padding: 0 15px;
+    }
+    
+    .red-social {
+      width: 100%;
+      max-width: 250px;
+      justify-content: center;
+    }
+  }
 
     /* Estilos Integrantes */
-    .integrantes-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: space-between;
+    .responsable-container {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .integrante {
-      flex: 1 1 calc(25% - 20px);
-      border: 1px solid #ccc;
-      padding: 10px;
-      box-sizing: border-box;
-      text-align: center;
-    }
-    .integrante img {
+
+    .responsable-imagen img {
       width: 100%;
       height: auto;
+      border-radius: 4px;
+    }
+
+    .responsable-info h3 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .cargo {
+      color: #e74c3c;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .titulo, .nivel {
+      color: #7f8c8d;
+      font-size: 0.95em;
+      margin-bottom: 15px;
+    }
+
+    .bio p {
+      margin-bottom: 15px;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    .integrantes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .integrante.destacado {
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border: 1px solid #ecf0f1;
+    }
+
+    .integrante-imagen img {
+      width: 100%;
       max-height: 200px;
       object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 15px;
     }
+
+    .posicion {
+      color: #3498db;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
     .perfil-links {
-      margin-top: 10px;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
+
     .perfil-links a {
-      display: inline-block;
-      margin: 0 5px;
-      color: #007BFF;
+      padding: 8px 12px;
+      background-color: #3498db;
+      color: white !important;
+      border-radius: 20px;
+      font-size: 0.85em;
+      transition: all 0.3s;
       text-decoration: none;
-      font-size: 0.9em;
+    }
+
+    .perfil-links a:hover {
+      background-color: #2980b9;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+      .responsable-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .responsable-imagen {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      
+      .integrantes-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Estilos Proyectos */
@@ -184,109 +311,172 @@
     </nav>
   </header>
 
-  <!-- Sección Información -->
-  <div id="info" class="tab-content active">
-    <h1>Laboratorio de Procesos Evolutivos y Diversidad de Aves Neotropicales</h1>
-    <img src="logo-lab.png" alt="Logo del laboratorio" class="logo-lab">
+<!-- Sección Información -->
+<div id="info" class="tab-content active">
+  <h1 class="titulo-principal">Laboratorio de Procesos Evolutivos y Diversidad de Aves Neotropicales</h1>
+  <img src="logo-lab.png" alt="Logo del laboratorio" class="logo-lab">
+  
+  <p>La investigación en el laboratorio se centra en los procesos evolutivos que impulsan la biodiversidad aviar, la evolución de los patrones de distribución, la estructura filogenética de las comunidades aviares, la biogeografía y la sistemática, principalmente en los Neotrópicos.</p>
+
+  <!-- Redes sociales -->
+  <div class="redes-sociales">
+    <a href="https://www.facebook.com/EvoNeoBirds/" target="_blank" class="red-social facebook">
+      <i class="fab fa-facebook"></i>
+      Síguenos en Facebook
+    </a>
     
-    <p>La investigación en el laboratorio se centra en los procesos evolutivos que impulsan la biodiversidad aviar, la evolución de los patrones de distribución, la estructura filogenética de las comunidades aviares, la biogeografía y la sistemática, principalmente en los Neotrópicos.</p>
-
-    <div class="facebook-link">
-      <a href="https://www.facebook.com/EvoNeoBirds/" target="_blank">
-        <img src="facebook-icon.png" alt="Facebook del laboratorio">
-      </a>
-    </div>
-
-    <div class="info-contacto">
-      <h3>Información de contacto</h3>
-      <p>Dirección: [Dirección completa del laboratorio]</p>
-      <p>Teléfono: [+52 55 1234 5678]</p>
-    </div>
+    <a href="https://www.instagram.com/prodiv.aves/" target="_blank" class="red-social instagram">
+      <i class="fab fa-instagram"></i>
+      Síguenos en Instagram
+    </a>
+    
+    <a href="https://www.researchgate.net/lab/Evolutionary-processes-and-diversity-of-Neotropical-birds-Luis-A-Sanchez-Gonzalez" target="_blank" class="red-social researchgate">
+      <i class="fab fa-researchgate"></i>
+      Visita ResearchGate
+    </a>
   </div>
+
+  <div class="info-contacto">
+    <h3>Información de contacto</h3>
+    <p>Dirección: [Dirección completa del laboratorio]</p>
+    <p>Teléfono: [+52 55 1234 5678]</p>
+  </div>
+</div>
 
   <!-- Sección Integrantes -->
   <div id="integrantes" class="tab-content">
     <h2>Integrantes</h2>
-    <div class="integrantes-container">
-      <div class="integrante">
-        <img src="integrante1.jpg" alt="Investigador Principal">
-        <h3>Dr. Juan Pérez</h3>
-        <p>Investigador principal especializado en biogeografía aviar con más de 15 años de experiencia en estudios neotropicales.</p>
+    
+    <!-- Responsable -->
+    <div class="responsable-container">
+      <div class="responsable-imagen">
+        <img src="responsable.jpg" alt="Dr. Luis Antonio Sánchez González">
+      </div>
+      <div class="responsable-info">
+        <h3>Dr. Luis Antonio Sánchez González</h3>
+        <p class="cargo">Responsable del Laboratorio</p>
+        <p class="titulo">Profesor Titular B Tiempo Completo<br>Facultad de Ciencias, UNAM</p>
+        <p class="nivel">Investigador Nacional SNII Nivel 2</p>
+        
+        <div class="bio">
+          <p>Realicé mis estudios de Licenciatura y Doctorado en la UNAM, así como un posdoctorado en el Biodiversity Institute and Museum of Natural History de la University of Kansas (USA). Mis líneas de investigación se centran en la Biología Evolutiva (Biogeografía, Sistemática y Ecología Evolutiva), usando a las aves como modelo.</p>
+          <p>He realizado trabajo de campo en todo México, Estados Unidos y Perú; así como en Asia (Filipinas) y África (Guinea Ecuatorial y Liberia). Imparto clases a nivel licenciatura y posgrado en la UNAM y participo activamente en la dirección de tesis de licenciatura y posgrado de alumnos de la UNAM, la Universidad Autónoma de Guerrero y la Universidad Autónoma Metropolitana.</p>
+          <p>e-mail: lasg@ciencias.unam.mx</p>
+        </div>
+        
         <div class="perfil-links">
-          <a href="#" target="_blank">ResearchGate</a>
-          <a href="#" target="_blank">ORCID</a>
-          <a href="#" target="_blank">Google Scholar</a>
+          <a href="https://www.researchgate.net/profile/Luis-Sanchez-Gonzalez-4" target="_blank">ResearchGate</a>
+          <a href="https://orcid.org/0000-0002-8932-1657" target="_blank">ORCID</a>
+          <a href="https://scholar.google.com/schhp?hl=es" target="_blank">Google Scholar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estudiantes -->
+    <div class="integrantes-grid">
+      <!-- Estudiante 1 -->
+      <div class="integrante destacado">
+        <div class="integrante-imagen">
+          <img src="estudiante1.jpg" alt="M. en C. Orlando Jael Espinosa-Chávez">
+        </div>
+        <div class="integrante-info">
+          <h3>M. en C. Orlando Jael Espinosa-Chávez</h3>
+          <p class="posicion">Estudiante de doctorado<br>Posgrado en Ciencias Biológicas, UNAM</p>
+          
+          <div class="bio">
+            <p>Soy biólogo egresado de la FES Zaragoza y Maestro en Ciencias por la Facultad de Ciencias de la UNAM, donde actualmente curso el Doctorado en Ciencias Biológicas. Mis intereses se centran en la sistemática, filogeografía y ecología evolutiva.</p>
+            <p>Específicamente en comprender los procesos evolutivos que han dado forma a la diversidad de aves en México, tanto en regiones de tierras bajas como de montaña, esto mediante el uso de datos moleculares y modelado de nicho ecológico. Además, he realizado trabajo en campo en gran parte de México y me apasiona la fotografía y la divulgación científica.</p>
+            <p>e-mail: orlando.espinosa@ciencias.unam.mx</p>
+          </div>
+          
+          <div class="perfil-links">
+            <a href="https://www.researchgate.net/profile/Orlando-J-Espinosa-Chavez?ev=hdr_xprf" target="_blank">ResearchGate</a>
+            <a href="https://orcid.org/0009-0008-3233-9048" target="_blank">ORCID</a>
+            <a href="https://scholar.google.com/citations?hl=es&user=X8UofoEAAAAJ" target="_blank">Google Scholar</a>
+          </div>
         </div>
       </div>
 
-      <div class="integrante">
-        <img src="integrante2.jpg" alt="Investigadora Postdoctoral">
-        <h3>Dra. María González</h3>
-        <p>Especialista en genética evolutiva de aves neotropicales con enfoque en filogeografía.</p>
-        <div class="perfil-links">
-          <a href="#" target="_blank">ResearchGate</a>
-          <a href="#" target="_blank">ORCID</a>
-          <a href="#" target="_blank">Google Scholar</a>
+      <!-- Estudiante 2 -->
+      <div class="integrante destacado">
+        <div class="integrante-imagen">
+          <img src="estudiante2.jpg" alt="Estudiante de doctorado 2">
+        </div>
+        <div class="integrante-info">
+          <h3>M. en C. Bill</h3>
+          <p class="posicion">Estudiante de doctorado<br>Posgrado en Ciencias Biológicas, UNAM</p>
+          
+          <div class="bio">
+            <p>[Descripción]</p>
+            <p>[Descripción continuación]</p>
+            <p>e-mail: bill@bill.bill </p>
+          </div>
+          
+          <div class="perfil-links">
+            <a href="#" target="_blank">ResearchGate</a>
+            <a href="#" target="_blank">ORCID</a>
+            <a href="#" target="_blank">Google Scholar</a>
+          </div>
         </div>
       </div>
 
-      <div class="integrante">
-        <img src="integrante3.jpg" alt="Estudiante Doctorado">
-        <h3>Biol. Luis Martínez</h3>
-        <p>Estudiante de doctorado investigando patrones de diversidad en comunidades aviares.</p>
-        <div class="perfil-links">
-          <a href="#" target="_blank">ResearchGate</a>
-          <a href="#" target="_blank">ORCID</a>
-          <a href="#" target="_blank">Google Scholar</a>
+      <!-- Estudiante 3 (Espacio reservado) -->
+      <div class="integrante destacado">
+        <div class="integrante-imagen">
+          <img src="estudiante3.jpg" alt="Estudiante de doctorado 3">
         </div>
-      </div>
-
-      <div class="integrante">
-        <img src="integrante4.jpg" alt="Técnico de Laboratorio">
-        <h3>Biol. Ana Sánchez</h3>
-        <p>Especialista en bioinformática y análisis de datos ecológicos.</p>
-        <div class="perfil-links">
-          <a href="#" target="_blank">ResearchGate</a>
-          <a href="#" target="_blank">ORCID</a>
-          <a href="#" target="_blank">Google Scholar</a>
+        <div class="integrante-info">
+          <h3>M. en C. Reinhard E. Matadamas</h3>
+          <p class="posicion">Estudiante de doctorado<br>Posgrado en Ciencias Biológicas, UNAM</p>
+          
+          <div class="bio">
+            <p>Biólogo egresado de la UNAM donde actualmente también realizo mis estudios de doctorado, explorando los procesos evolutivos que han originado la diversidad actual de aves en las regiones montañosas de México. </p>
+            <p>Además, me interesan otras áreas como la biogeografía, ecología evolutiva, macroecología y macroevolución. He realizado trabajo de campo en diversas regiones de México, Estados Unidos y Liberia. En mi tiempo libre me gusta observar aves y el senderismo.</p>
+            <p>e-mail: reinhardmata@ciencias.unam.mx</p>
+          </div>
+          
+          <div class="perfil-links">
+            <a href="https://www.researchgate.net/profile/Reinhard-Matadamas?ev=hdr_xprf" target="_blank">ResearchGate</a>
+            <a href="#" target="_blank">ORCID</a>
+            <a href="#" target="_blank">Google Scholar</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Sección Proyectos -->
   <div id="proyectos" class="tab-content">
     <h2>Proyectos Vigentes</h2>
     
     <div class="proyecto-dropdown">
-      <button class="dropdown-btn">Proyecto 1: Filogeografía de especies andinas</button>
+      <button class="dropdown-btn">Proyecto 1: Título</button>
       <div class="dropdown-content">
         <img src="proyecto1.jpg" alt="Proyecto 1" class="proyecto-imagen">
-        <p>Análisis de patrones de diversidad genética en aves de alta montaña...</p>
+        <p>Descripción</p>
       </div>
     </div>
 
     <div class="proyecto-dropdown">
-      <button class="dropdown-btn">Proyecto 2: Evolución de coloración en tangaras</button>
+      <button class="dropdown-btn">Proyecto 2: Título</button>
       <div class="dropdown-content">
         <img src="proyecto2.jpg" alt="Proyecto 2" class="proyecto-imagen">
-        <p>Estudio de la evolución del plumaje en Thraupidae neotropicales...</p>
+        <p>Descripción</p>
       </div>
     </div>
 
     <div class="proyecto-dropdown">
-      <button class="dropdown-btn">Proyecto 3: Biogeografía amazónica</button>
+      <button class="dropdown-btn">Proyecto 3: Título</button>
       <div class="dropdown-content">
         <img src="proyecto3.jpg" alt="Proyecto 3" class="proyecto-imagen">
-        <p>Reconstrucción de áreas ancestrales en aves de sotobosque...</p>
+        <p>Descripción</p>
       </div>
     </div>
 
     <div class="proyecto-dropdown">
-      <button class="dropdown-btn">Proyecto 4: Sistemática de colibríes</button>
+      <button class="dropdown-btn">Proyecto 4: Título</button>
       <div class="dropdown-content">
         <img src="proyecto4.jpg" alt="Proyecto 4" class="proyecto-imagen">
-        <p>Revisión taxonómica del género Amazilia utilizando datos genómicos...</p>
+        <p>Descripción</p>
       </div>
     </div>
   </div>
@@ -296,23 +486,23 @@
     <h2>Artículos Publicados</h2>
     <ul class="articulos-list">
       <li>
-        <strong>2023:</strong> Filogenómica de aves neotropicales: nuevos enfoques metodológicos. 
+        <strong>2023:</strong> Título 
         <a href="#" target="_blank">Ver artículo</a>
       </li>
       <li>
-        <strong>2022:</strong> Patrones de diversidad en comunidades aviares de los Andes tropicales. 
+        <strong>2022:</strong> Título 
         <a href="#" target="_blank">Ver artículo</a>
       </li>
       <li>
-        <strong>2021:</strong> Evolución del canto en aves passeriformes: un análisis comparativo. 
+        <strong>2021:</strong> Título 
         <a href="#" target="_blank">Ver artículo</a>
       </li>
       <li>
-        <strong>2020:</strong> Biogeografía histórica de los colibríes amazónicos: el papel de los cambios paleoclimáticos. 
+        <strong>2020:</strong> Título 
         <a href="#" target="_blank">Ver artículo</a>
       </li>
       <li>
-        <strong>2019:</strong> Sistemática integrativa del género Tangara (Thraupidae): evidencias morfológicas y moleculares. 
+        <strong>2019:</strong> Título 
         <a href="#" target="_blank">Ver artículo</a>
       </li>
     </ul>
